@@ -40,6 +40,8 @@ case "$1" in
         fi
         echo $! > "$pid_file"
         if ! is_running; then
+            unset _bash_it_config_file
+            unset _bash_it_config_type
             echo "Unable to start, see $stdout_log and $stderr_log"
             exit 1
         fi
